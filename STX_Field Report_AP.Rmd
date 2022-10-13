@@ -404,7 +404,7 @@ STR_all_summary <- STR_all %>%
 STR_all_summary
 ```
 
-Temperature values were similar among the 1m, 5m and 15m depths with the lowest temperatures recorded during February 2021 (20.8, 20.7, and 19.9 $^\circ$C, respectively) and the the higest temperatures during the summer of 2019 and 2020 (31.7, 31.6, and 31.5 $^\circ$C, respectively). Though the 25m STR stopped recording on February 7, 2020, it detected consistent temperature stratification at this site during the summers when it was active. Temperatures at 25m were on average 5-6$^\circ$C lower during summer 2018, and 1$^\circ$C lower during summer 2019, compared with the values at other depths (Fig. 2). 
+Temperature values were similar among the 1m, 5m and 15m depths with the lowest temperatures recorded during February 2021 (20.8, 20.7, and 19.9 $^\circ$C, respectively) and the the highest temperatures during the summer of 2019 and 2020 (31.7, 31.6, and 31.5 $^\circ$C, respectively). Though the 25m STR stopped recording on February 7, 2020, it detected consistent temperature stratification at this site during the summers when it was active. Temperatures at 25m were on average 5-6$^\circ$C lower during summer 2018, and 1$^\circ$C lower during summer 2019, compared with the values at other depths (Fig. 2). 
 
 -----
 
@@ -463,14 +463,14 @@ fileAny <- "Data/tiltmeter-sn2102062-stx-suite-current.csv"
 
 **WHAT IS THE TIME ZONE WE WANT HERE??**
 
-**DO WE WNAT TO TRIM THESE DATA?**
+**DO WE WANT TO TRIM THESE DATA?**
 
 ```{r PAR_data, include = FALSE}
 
 # 3. Get the PAR data  
   light <- read_csv('Data/ecopar-0392-stx-suite.csv',
                     col_types = cols()) %>%
-          mutate(DateTime = mdy_hms(`Datetime (AST)`)) %>%
+          mutate(DateTime = mdy_hms(`Datetime (AST)`, tz="EDT")) %>%
           #mutate(DateTime = parse_date_time(DateTime, '%m/%d/%Y %H:%M:%S')) %>%
               #mutate(DateTime = with_tz(DateTime, 'America/New_York'))%>%
           select(DateTime, `PAR (CALC)`) %>%
@@ -486,13 +486,13 @@ fileAny <- "Data/tiltmeter-sn2102062-stx-suite-current.csv"
   # filter(DateTime >= as.POSIXct('2021-06-25 18:35:00', tz='UTC') &
   #        DateTime <= as.POSIXct('2021-06-28 19:45:00', tz='UTC'))
 
-summary(light$DateTime)
+str(light$DateTime)
 
 ```
 
 **WHAT IS THE TIME ZONE WE WANT HERE??**
 
-**DO WE WNAT TO TRIM THESE DATA?**
+**DO WE WANT TO TRIM THESE DATA?**
 
 ```{r ph and temp combined v3,echo=FALSE, warning=FALSE,fig.width = 9.5, fig.height = 3.5}
 
