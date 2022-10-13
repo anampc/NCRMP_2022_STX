@@ -430,7 +430,7 @@ pH <- read_csv('Data/seafet-sn2114-stx-suite.csv',col_types = cols()) %>%
     mutate(DateTime = with_tz(DateTime, 'America/New_York'))
 ```
 
-**DO WE WNAT TO TRIM THESE DATA?**
+**DO WE WANT TO TRIM THESE DATA?**
 
 ```{r Current_data, include=FALSE}
 
