@@ -11,7 +11,7 @@ output:
 
 <h1 style="color: darkblue;font size=24, align=center" > National Coral Reef Monitoring Program</h1> 
 
-<h2 style="color: darkblue;font size=12"> Climate Monitoring Brief: Dry Tortugas National Park</h2>
+<h2 style="color: darkblue;font size=12"> Climate Monitoring Brief: St. Croix, USVI</h2>
 --------
 
 
@@ -69,7 +69,7 @@ National Oceanic Atmospheric Administration</h4>
 <br>
 
 <h5 style="font size=6">
-N. Besemer, A. Palacio, G. Kolodziej, I. Enochs - October 2022
+N. Besemer, A. Palacio, A. Webb, G. Kolodziej, I. Enochs - October 2022
 </h5>
 
 ```{r logos, echo=FALSE, fig.align='left', out.width='20%'}
@@ -89,8 +89,8 @@ The NOAA Atlantic Oceanographic and Meteorological Laboratory (AOML) conducts th
 
 ### Expedition summary
 
-* The most recent NCRMP Atlantic climate monitoring took place at Dry Tortugas National Park from June 24th to June 29th 2021
-* Four different sites were visited by 5 team members completing a total of 63 dives. 
+* The most recent NCRMP Atlantic climate monitoring took place in St. Croix in the US Virgin islands from September 4th to September 9th 2022
+* 16 different sites were visited by four team members and collaborators completing a total of 45 dives. 
 * These sites represent temporal‐resolution monitoring with moored instruments at fixed time‐series which are placed on depth gradient to assess how vertical structure affects reef status and trends.
 
 
@@ -105,15 +105,15 @@ The NOAA Atlantic Oceanographic and Meteorological Laboratory (AOML) conducts th
   - Black Coral Rock (25m): 165,695 observations 
 
 
-* At the Bird Key Reef, short term instruments (72h) were deployed to  monitor daily fluctuations in: 
+* At Salt River Bay, short term instruments (72h) were deployed to  monitor daily fluctuations in: 
   - **Current**: 880 observations
   - **pH**: 879 observations
   - **Light**: 876 observations
   - **Carbonate Chemistry**: 24 samples collected
   
-* Additionally, changes in benthic cover and carbonate production were monitored at Bird Key Reef by recording:
-  - **Bioerosion**: 5 Bioerosion Monitoring Units (BMUs) collected, 10 redeployed 
-  - **Calcification**: 5 Calcification Accretions Units (CAUs) collected, 5 redeployed
+* Additionally, changes in benthic cover and carbonate production were monitored at Salt River Bay by recording:
+  - **Bioerosion**: 38 Bioerosion Monitoring Units (BMUs) collected, 40 redeployed 
+  - **Calcification**: 5 Calcification Accretions Units (CAUs) collected, 20 redeployed
   - **Benthic cover**: 6 landscape mosaics
   - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at 6 transects
 
@@ -197,7 +197,7 @@ map
 
 #### Temperature
 
-Three years of temperature measurements were retrieved and processed from all 4 sites (depths). Temperature was measured using SeaBird Electronics Subsurface Temperature Recorders (STR)s that collected data at 5-minute intervals.
+Three years of temperature measurements were retrieved and processed from 14 sites (depths). Temperature was measured using SeaBird Electronics Subsurface Temperature Recorders (STR)s that collected data at 5-minute intervals.
 
 
 ```{r get Temp, include=FALSE}
@@ -410,7 +410,7 @@ Temperature values were similar among the 1m, 5m and 15m depths with the lowest 
 
 #### Diurnal Suite Deployment
 
-At Bird Key Reef additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 5-minute intervals.
+At Salt River Bay additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 15-minute intervals.
 
 ```{r pH_and_temp_data, include=FALSE}
 
@@ -462,6 +462,7 @@ fileAny <- "Data/tiltmeter-sn2102062-stx-suite-current.csv"
 ```
 
 **WHAT IS THE TIME ZONE WE WANT HERE??**
+**Atlantic Standard Time
 
 **DO WE WANT TO TRIM THESE DATA?**
 
@@ -701,14 +702,14 @@ NCRMP climate monitoring: https://www.coris.noaa.gov/monitoring/climate.html
 NOAA Atlantic Oceanographic and Meteorological Laboratory:
 http://www.aoml.noaa.gov/
 
-[Florida Coral Reef Status Report 2020](https://www.coris.noaa.gov/monitoring/status_report/docs/FL_508_compliant.pdf)
+[USVI Reef Status Report 2020](https://www.coris.noaa.gov/monitoring/status_report/docs/USVI_508_compliant.pdf)
 
 [National Coral Reef Status Report 2020](https://repository.library.noaa.gov/view/noaa/27295)
 
 ### Acknowledgements
 
 
-These efforts were jointly funded by NOAA's CRCP and OAP. We would like to thank the National Park Service and Florida Keys National Marine Sanctuary for permitting support and the ANGARI Foundation for field support.
+These efforts were jointly funded by NOAA's CRCP and OAP. We would like to sincerely thank the National Park Service as well as Caribbean Sea Adventures for supporting our field efforts and assisting monitoring surveys
 
 
 ```{r fundingsources, include=FALSE, fig.align='left', out.width='35%'}
@@ -720,6 +721,8 @@ F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.4)
 F2 <- ggdraw() + draw_image("Logos/OAP.png", scale = 1)
 
 funding<-plot_grid(F1, F2, nrow=1, rel_widths = c(2,2))
+
+##I THINK I WANT TO ADD NPS AND CARIBBEAN SEA ADVENTURES LOGOS IF POSSIBLE##
 
 ```
 
@@ -733,6 +736,4 @@ funding
 knitr::include_graphics("Data/Fieldteam.jpg")
 ```
 
-**Field team members**: Graham Kolodziej, Nicole Besemer, Ana Palacio, Ian Enochs
-
-**Additional lab members involved with NCRMP**: Benjamin Chomitz, Albert Boyd, Mike Jankulak, 
+**AOMLs NCRMP Atlantic and Caribbean Climate Team**: I. Enochs, N. Besemer, G. Kolodziej, M. Chakraborty, A.Boyd, M. Jankulak, A. Palacio-Castro, A. Webb, B. Chomitz
