@@ -308,6 +308,7 @@ map<-leaflet(stations, height = '400px') %>%
                    label = ~Depth,
                    labelOptions = labelOptions(
                      noHide = T,
+
                      textOnly = TRUE,
                      style = list(
         "color" = "black")))  %>%
@@ -341,6 +342,7 @@ map<-leaflet(stations, height = '400px') %>%
       fillColor = "transparent",
       label = "North",
       labelOptions = labelOptions(
+
                        noHide = T, direction = "top",
                        offset = c(0, -30),
                        textOnly = F))  %>%
@@ -355,6 +357,7 @@ map<-leaflet(stations, height = '400px') %>%
       labelOptions = labelOptions(
                        noHide = T, direction = "top",
                        offset = c(0, -35),
+
                        textOnly = F)) %>%
     addRectangles(
     lng1=-64.67, lat1=17.671,
@@ -365,9 +368,9 @@ map<-leaflet(stations, height = '400px') %>%
       fillColor = "transparent",
       label = "South",
       labelOptions = labelOptions(
-                       noHide = T, direction = "bottom",
-                         offset = c(0, 35),
-                       textOnly = F))
+                        noHide = T, direction = "bottom",
+                        offset = c(0, 35),
+                        textOnly = F))
 map
   
 #addControl(map, position="topleft", 
@@ -498,7 +501,7 @@ Temperature values were similar among the transects and depths depths with the l
 
 #### Diurnal Suite Deployment
 
-At Salt River Bay additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 15-minute intervals.
+At XXXXX Salt River Bay additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 15-minute intervals.
 
 
 ```{r ph and temp combined v3,echo=FALSE, warning=FALSE,fig.width = 9.5, fig.height = 3.5}
@@ -642,7 +645,11 @@ ggdraw(plot_grid(plot_grid(pH_Temp_Plot,
                  ncol = 1, rel_heights=c(1, 0.1)))
 ```
 
+<<<<<<< HEAD
 <font size="2">**Figure 3:** Salt River Bay (XXm) diurnal suite monitoring from XX 25th to DATE. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
+=======
+<font size="2">**Figure 3:** XXX (XXm) diurnal suite monitoring from XX 25th to XX Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
+>>>>>>> b4bd53ed636665a96820e9354b2bd96e213fe6ea
 
 
 As part of the diurnal suite, discrete water samples were collected at three-hour intervals (n=XX) using Subsurface Automatic Samplers (SAS). These samples will be analyzed for Total Alkalinity (TA), Dissolved Inorganic Carbon (DIC), and Spectrophotometric pH (SpecpH). Using these metrics we can get the calculated values for pCO2 and aragonite saturation state. For more information on SAS vist https://www.coral.noaa.gov/accrete/sas/
