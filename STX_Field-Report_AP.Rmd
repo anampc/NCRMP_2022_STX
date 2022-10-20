@@ -225,11 +225,11 @@ summary(light$DateTime)
 
 ```{r}
 pH_count<-paste0("pH = ", nrow(pH), " observatons")
-pH_count
+#pH_count
 current_count<-paste0("Current = ", nrow(current), " observatons")
-current_count
+#current_count
 light_count<-paste0("Light = ", nrow(light), " observatons")
-light_count
+#light_count
 ```
 
 
@@ -490,7 +490,7 @@ STR_all_summary
 
 ```
 
-Temperature values were similar among the transects and depths depths with the lowest temperatures generally occurring in March (mean 26.56 $^\circ$C, min 25.64 $^\circ$C, max 28.27 $^\circ$C) and the the highest temperatures in September(mean = 29.68 $^\circ$C, min = 27.22 $^\circ$C, max = 32.11$^\circ$C). The south 1m station presented the highest temperature variability and the maximum temperature values recorded in October 2021 (32.16$^\circ$C) and September 2020 (32.11$^\circ$C) (Fig. 2). 
+Temperature values were similar among the transects and depths depths with the lowest temperatures generally occurring in March (mean: 26.56 $^\circ$C, min: 25.64 $^\circ$C, max: 28.27 $^\circ$C) and the the highest temperatures in September(mean: 29.68 $^\circ$C, min: 27.22 $^\circ$C, max: 32.11$^\circ$C). The south 1m station presented the highest temperature variability and the maximum temperature values recorded in October 2021 (32.16$^\circ$C) and September 2020 (32.11$^\circ$C) (Fig. 2). 
 
 -----
 
@@ -640,11 +640,9 @@ ggdraw(plot_grid(plot_grid(pH_Temp_Plot,
                  ncol = 1, rel_heights=c(1, 0.1)))
 ```
 
-<<<<<<< HEAD
+
 <font size="2">**Figure 3:** Salt River Bay (N 15m) diurnal suite monitoring from Sept 5th to Sept 8th. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
-=======
-<font size="2">**Figure 3:** XXX (XXm) diurnal suite monitoring from XX 25th to XX Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
->>>>>>> b4bd53ed636665a96820e9354b2bd96e213fe6ea
+
 
 
 As part of the diurnal suite, discrete water samples were collected at three-hour intervals (n=15) using Subsurface Automatic Samplers (SAS). These samples will be analyzed for Total Alkalinity (TA), Dissolved Inorganic Carbon (DIC), and Spectrophotometric pH (SpecpH). Using these metrics we can get the calculated values for pCO2 and aragonite saturation state. For more information on SAS vist https://www.coral.noaa.gov/accrete/sas/
@@ -661,7 +659,7 @@ knitr::include_graphics("Data/SAS.jpg")
 
 At Salt River Bay, 6 transects were established in 2019 and surveyed to obtain carbonate budgets which quantify reef building organisms and reef eroders to determine if a reef is net growing or net eroding.  (Fig. 4).We revisited this site to complete individual surveys on benthic cover, parrotfish, urchin and bioeroding sponge abundance to see if there is a change in the reef budget over 3 years. 
 
-```{r, Carbonate_B_plot, echo=FALSE, warning=FALSE, fig.width = 9.5, fig.height = 5.5}
+```{r, Carbonate_B_plot, echo=FALSE, warning=FALSE, fig.width = 7.5, fig.height = 3.5}
 ## boxplots production
 CB.data<- read.csv("Data/STX_2022_CB.csv")
 
