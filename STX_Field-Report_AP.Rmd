@@ -70,7 +70,7 @@ National Oceanic Atmospheric Administration</h4>
 <br>
 
 <h5 style="font size=6">
-N. Besemer, A. Palacio, A. Webb, G. Kolodziej, I. Enochs - October 2022
+N. Besemer, A. Palacio, A. Webb, G. Kolodziej, M. Chakraborty, I. Enochs - October 2022
 </h5>
 
 ```{r logos, echo=FALSE, fig.align='left', out.width='20%'}
@@ -138,11 +138,6 @@ STR_all$Depth[STR_all$Depth=="06m"]<-"05m"
 ```
 
 * Subsurface **temperature** recorders (STRs) were recovered and redeployed at all 4 transects, each one composed by 3-4 depths (Fig. 1). Overall,  more than 4 million temperature observations were collected:
-  **PERHAPS REMOVE THIS TEXT AND LEAVE ONLY THE TABLE **
-  - E (1m): 311,609 observations 
-  - White Shoal (5m): 311,213 observations 
-  - Bird Key Reef (15m): 311,560 observations 
-  - Black Coral Rock (25m): 165,695 observations 
   
 ```{r Temp observations}
 Cases_Loc_depht<-STR_all %>% count(Transect,
@@ -238,17 +233,17 @@ light_count
 ```
 
 
-* At XXX, short term instruments (72h) were deployed to  monitor daily fluctuations in: 
+* At Salt River, the north side of St. Croix, short term instruments (72h) were deployed to  monitor daily fluctuations in: 
   - **Current**: 294 observations
   - **pH**: 294 observations
   - **Light**: 290 observations
-  - **Carbonate Chemistry**: XX samples collected
+  - **Carbonate Chemistry**: 15 samples collected
   
-* Additionally, changes in benthic cover and carbonate production were monitored at XXX by recording:
-  - **Bioerosion**: XX Bioerosion Monitoring Units (BMUs) collected, XX redeployed 
-  - **Calcification**: XX Calcification Accretions Units (CAUs) collected, XX redeployed
-  - **Benthic cover**: XX landscape mosaics
-  - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at XX transects
+* Additionally, changes in benthic cover and carbonate production were monitored at all 15m sites by recording:
+  - **Bioerosion**: 39 Bioerosion Monitoring Units (BMUs) collected, 40 redeployed 
+  - **Calcification**: 18 Calcification Accretions Units (CAUs) collected, 20 redeployed
+  - **Benthic cover**: 6 landscape mosaics (Salt River Only)
+  - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at 6 transects (Salt River Only)
 
 <br>
 
@@ -384,7 +379,7 @@ map
 
 #### Temperature
 
-Three years of temperature measurements were retrieved and processed from 4 sites (depths). Temperature was measured using SeaBird Electronics Subsurface Temperature Recorders (STR)s that collected data at 5-minute intervals.
+Three years of temperature measurements were retrieved and processed from 14 sites (depths). Temperature was measured using SeaBird Electronics Subsurface Temperature Recorders (STR)s that collected data at 5-minute intervals.
 
 
 ```{r filter Temp, include=FALSE}
@@ -468,7 +463,7 @@ Figure2_1 <- ggarrange(plot1, box1, widths = c(8/10, 2/10))
 Figure2_1
 ```
 
-<font size="2"> **Figure 2:** Temperature conditions at four transects in Saint Croix (east, west, north and south) representing a depth gradient (1m, 5m, 15mand 25m). CHANGE THIS: Data were collected from November 2018 to June 2021, with the exception of the 25m STR that recorded until February 7th 2020. </font>
+<font size="2"> **Figure 2:** Temperature conditions at four transects in Saint Croix (east, west, north and south) representing a depth gradient (1m, 5m, 15mand 25m). CHANGE THIS: Data were collected from September 2019 to September 2022. **DID ANY NOT LOG THE FULL TIME?)** </font>
  
 ```{r, echo = F, include=F}
 #Temp.Depth <- plyr::ddply (str_all, .(Depth), summarise,
@@ -501,7 +496,7 @@ Temperature values were similar among the transects and depths depths with the l
 
 #### Diurnal Suite Deployment
 
-At XXXXX Salt River Bay additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 15-minute intervals.
+At the North 15m site, Salt River Bay, additional instruments were deployed for a 72-hour diurnal suite that monitored pH, temperature, light and current speed (Fig. 3). The SeaFET pH logger, EcoPAR and Tiltmeter collected measurements at 15-minute intervals.
 
 
 ```{r ph and temp combined v3,echo=FALSE, warning=FALSE,fig.width = 9.5, fig.height = 3.5}
@@ -646,13 +641,13 @@ ggdraw(plot_grid(plot_grid(pH_Temp_Plot,
 ```
 
 <<<<<<< HEAD
-<font size="2">**Figure 3:** Salt River Bay (XXm) diurnal suite monitoring from XX 25th to DATE. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
+<font size="2">**Figure 3:** Salt River Bay (N 15m) diurnal suite monitoring from Sept 5th to Sept 8th. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
 =======
 <font size="2">**Figure 3:** XXX (XXm) diurnal suite monitoring from XX 25th to XX Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 5 minutes. </font>
 >>>>>>> b4bd53ed636665a96820e9354b2bd96e213fe6ea
 
 
-As part of the diurnal suite, discrete water samples were collected at three-hour intervals (n=XX) using Subsurface Automatic Samplers (SAS). These samples will be analyzed for Total Alkalinity (TA), Dissolved Inorganic Carbon (DIC), and Spectrophotometric pH (SpecpH). Using these metrics we can get the calculated values for pCO2 and aragonite saturation state. For more information on SAS vist https://www.coral.noaa.gov/accrete/sas/
+As part of the diurnal suite, discrete water samples were collected at three-hour intervals (n=15) using Subsurface Automatic Samplers (SAS). These samples will be analyzed for Total Alkalinity (TA), Dissolved Inorganic Carbon (DIC), and Spectrophotometric pH (SpecpH). Using these metrics we can get the calculated values for pCO2 and aragonite saturation state. For more information on SAS vist https://www.coral.noaa.gov/accrete/sas/
 
 ```{r SASs, echo=FALSE, out.width = '50%', fig.cap="Submered Automated Samplers (SAS) deployed to collect water samples every 3 hours", fig.align='center'}
 
@@ -664,7 +659,7 @@ knitr::include_graphics("Data/SAS.jpg")
 
 #### Carbonate budgets
 
-At XXXXX SITE XX transects were surveyed to obtain carbonate budgets EXPLAIN WHAT THIS IS (Fig. 4). HOW DO WE DO THEM. why do show 2 years... BLa BLA BLA 
+At Salt River Bay, 6 transects were established in 2019 and surveyed to obtain carbonate budgets which quantify reef building organisms and reef eroders to determine if a reef is net growing or net eroding.  (Fig. 4).We revisited this site to complete individual surveys on benthic cover, parrotfish, urchin and bioeroding sponge abundance to see if there is a change in the reef budget over 3 years. 
 
 ```{r, Carbonate_B_plot, echo=FALSE, warning=FALSE, fig.width = 9.5, fig.height = 5.5}
 ## boxplots production
@@ -725,7 +720,7 @@ knitr::include_graphics("Data/CAUBMU.jpg")
 
 * **Landscape mosaics** (n=6) and **carbonate budget** surveys (n=6) were completed to monitor changes in benthic cover and carbonate production
 
-```{r mosaic, echo=FALSE, out.width = '50%', fig.cap="Scientist Nathan Formel collects images to create the orthorectified landscape mosaics", fig.align='center'}
+```{r mosaic, echo=FALSE, out.width = '50%', fig.cap="Landscape Mosaic collected from transect 6", fig.align='center'}
 
 knitr::include_graphics("Data/natemosaic.jpg")
 
