@@ -1,12 +1,12 @@
 ---
 output:
-  word_document: default
-  pdf_document: default
-  always_allow_html: true
   html_document:
     fig_height: 5
     fig_width: 5
     fig_position: center
+  pdf_document: default
+  always_allow_html: true
+  word_document: default
 ---
 
 <h1 style="color: darkblue;font size=24, align=center" > National Coral Reef Monitoring Program</h1> 
@@ -298,6 +298,7 @@ map<-leaflet(stations, width = '700px') %>%
             pal = pal.gen2, 
             values = ~Depth, opacity = 1) %>%
   addScaleBar(position = "topright") %>%
+
   fitBounds(lng1=-64.9, lat=17.85, lng2=-64.4, lat2=17.6)%>%
 
 # Sub_regions
@@ -775,8 +776,8 @@ http://www.aoml.noaa.gov/
 
 These efforts were jointly funded by NOAA's CRCP and OAP. We would like to sincerely thank the National Park Service as well as Caribbean Sea Adventures for supporting our field efforts and assisting monitoring surveys
 
-
 ```{r fundingsources, include=FALSE, fig.width = 10, fig.height = 4, fig.align='center', out.width='100%'}
+
 F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.4)
 #F_space<-ggplot() +
 #    theme_void() +
@@ -784,20 +785,24 @@ F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.4)
 #    xlab(NULL)
 F2 <- ggdraw() + draw_image("Logos/OAP.png", scale = 1)
 F3 <- ggdraw() + draw_image("Logos/NPS.png", scale = 0.7)
-F4 <- ggdraw() + draw_image("Logos/CSA.png", scale = 0.7)
+F4 <- ggdraw() + draw_image("Logos/CSA.png", scale = 0.65)
 
 funding<-plot_grid(F1, F2, F3, F4, 
                   nrow=1, rel_widths = c(2,2, 4, 3.8))
 
 ```
 
+
 ```{r funding, echo=FALSE,fig.width = 10, fig.height = 3, fig.align='center', out.width='100%'}
+
 funding
 ```
 
 ### Our Team
 
+
 ```{r team, echo=FALSE, out.width = '50%', fig.align='center', fig.cap="St. Croix, USVI 2022 Field team" }
+
 knitr::include_graphics("Data/Fieldteam.jpg")
 ```
 
