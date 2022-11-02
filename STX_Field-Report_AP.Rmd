@@ -85,7 +85,7 @@ plot_grid(p1, p2)
 
 ### About this summary brief
 
-The NOAA Atlantic Oceanographic and Meteorological Laboratory (AOML) conducts the long-term National Coral Reef Monitoring Program (NCRMP) to track the status and trends of coral reef ecosystems of the U.S. Atlantic and Caribbean coral reef jurisdictions. This FY21 summary brief provides an overview of the most recent survey efforts.
+The NOAA Atlantic Oceanographic and Meteorological Laboratory (AOML) conducts the long-term National Coral Reef Monitoring Program (NCRMP) to track the status and trends of coral reef ecosystems of the U.S. Atlantic and Caribbean coral reef jurisdictions. This summary brief provides an overview of the most recent survey efforts to St. Croix USVI.
 
 
 ### Expedition summary
@@ -239,12 +239,13 @@ light_count<-paste0("Light = ", nrow(light), " observatons")
   - **pH**: 294 observations
   - **Light**: 290 observations
   - **Carbonate Chemistry**: 15 samples collected
+  - **Benthic cover**: 6 landscape mosaics 
+  - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at 6 transects
   
-* Additionally, changes in benthic cover and carbonate production were monitored at all 15m sites by recording:
+* Additionally, changes in bioerosion and accretion were monitored at all 15m sites by recording:
   - **Bioerosion**: 39 Bioerosion Monitoring Units (BMUs) collected, 40 redeployed 
   - **Calcification**: 18 Calcification Accretions Units (CAUs) collected, 20 redeployed
-  - **Benthic cover**: 6 landscape mosaics (Salt River Only)
-  - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at 6 transects (Salt River Only)
+
 
 <br>
 
