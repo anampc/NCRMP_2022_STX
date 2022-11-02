@@ -54,9 +54,9 @@ library(webshot)
 ```
 
 
-```{r front, echo=FALSE, out.width = '75%', fig.cap="New Subsurface Temperature Recorder deployed at XXXXXX label", fig.align='center'}
+```{r front, echo=FALSE, out.width = '75%', fig.cap="Orbicella faveolata colony in St. Croix, USVI", fig.align='center'}
 
-knitr::include_graphics("Data/STRfish.jpg")
+knitr::include_graphics("Data/STX_NCRMPClimate_2022.jpg")
 
 ```
 
@@ -241,7 +241,9 @@ light_count<-paste0("Light = ", nrow(light), " observatons")
   - **Carbonate Chemistry**: 15 samples collected
   - **Benthic cover**: 6 landscape mosaics 
   - **Carbonate budget surveys**: Benthic cover, sponge, urchin and parrotfish surveys completed at 6 transects
-  
+
+<br>
+
 * Additionally, changes in bioerosion and accretion were monitored at all 15m sites by recording:
   - **Bioerosion**: 39 Bioerosion Monitoring Units (BMUs) collected, 40 redeployed 
   - **Calcification**: 18 Calcification Accretions Units (CAUs) collected, 20 redeployed
@@ -287,16 +289,16 @@ kable(head(stations[, -6], format = "html"))
 
 ```
 
-```{r makeAmap, echo=FALSE, fig.width = 8.5, fig.height = 4, fig.align='center'}
-map<-leaflet(stations, width = '600px') %>% 
+```{r makeAmap, echo=FALSE, fig.width = 10, fig.height = 4, fig.align='center'}
+map<-leaflet(stations, width = '700px') %>% 
   addTiles() %>%
   addProviderTiles(providers$Esri.WorldGrayCanvas) %>%
   
   addLegend(position = "bottomright",
             pal = pal.gen2, 
             values = ~Depth, opacity = 1) %>%
-  addScaleBar(position = "bottomleft") %>%
-  fitBounds(lng1=-64.9, lat=17.85, lng2=-64.4, lat2=17.6)%>%
+  addScaleBar(position = "topright") %>%
+  fitBounds(lng1=-64.9, lat=17.85, lng2=-64.3, lat2=17.6)%>%
 
 # Sub_regions
      addRectangles(
@@ -362,15 +364,15 @@ addCircleMarkers(lng = ~Lon, lat = ~Lat,
                      textOnly = TRUE,
                      style = list(
         "color" = "black")))
-#map  
+map  
 
-addControl(map, position="topright", 
-          html = '<img src="/Data/North-Arrow.png">')
+# addControl(map, position="topright", 
+#           html = '<img src="Data/North-Arrow.png">')
 
   
 ```
 
-<font size="2"> **Figure 1:** Study sites and depths in Dry Tortugas National Park area </font>
+<font size="2"> **Figure 1:** Study sites and depths in St. Croix, USVI </font>
 
 -----
 
@@ -663,7 +665,7 @@ knitr::include_graphics("Data/SAS.jpg")
 
 #### Carbonate budgets
 
-At Salt River Bay, 6 transects were established and surveyed in 2019 to obtain carbonate budgets which describe the summation of all processes contributing to calcification and bioerosion on a reef.  This metric is used to determine if a reef is in a state of net accretion; growing or net loss; flattening. We revisited this site and recorded the abundance and cover of all major carbonate producing (coral and CCA) and eroding taxa (urchin, bioeroding sponges and parrotfish) to find out the new carbonate budget status after 3 years. 
+At Salt River Bay, six transects were established and surveyed in 2019 to obtain carbonate budgets which describe the summation of all processes contributing to calcification and bioerosion on a reef.  This metric is used to determine if a reef is in a state of net accretion; growing or net loss; flattening. We revisited this site and recorded the abundance and cover of all major carbonate producing (coral and CCA) and eroding taxa (urchin, bioeroding sponges and parrotfish) to find out the new carbonate budget status after 3 years. 
 
 ```{r, Carbonate_B_plot, echo=FALSE, warning=FALSE, fig.width = 7.5, fig.height = 3.5}
 ## boxplots production
@@ -726,11 +728,10 @@ knitr::include_graphics("Data/CAUBMU.jpg")
 ```
 
 * **Landscape mosaics** (n=6) were completed to monitor changes in benthic cover.
-INSERT MOS TRASN 6 
 
 ```{r mosaic, echo=FALSE, out.width = '50%', fig.cap="Landscape Mosaic collected from transect 6", fig.align='center'}
 
-knitr::include_graphics("Data/natemosaic.jpg")
+knitr::include_graphics("Data/mosaic.jpg")
 
 ```
 
@@ -775,27 +776,28 @@ http://www.aoml.noaa.gov/
 These efforts were jointly funded by NOAA's CRCP and OAP. We would like to sincerely thank the National Park Service as well as Caribbean Sea Adventures for supporting our field efforts and assisting monitoring surveys
 
 
-```{r fundingsources, include=FALSE, fig.align='left', out.width='35%'}
+```{r fundingsources, include=FALSE, fig.align='left', out.width='100%'}
 F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.4)
 #F_space<-ggplot() +
 #    theme_void() +
 #    geom_text(aes(0,0,label='')) +
 #    xlab(NULL)
 F2 <- ggdraw() + draw_image("Logos/OAP.png", scale = 1)
+F3 <- ggdraw() + draw_image("Logos/NPS.png", scale = 0.8)
+F4 <- ggdraw() + draw_image("Logos/CSA.png", scale = 0.8)
 
-funding<-plot_grid(F1, F2, nrow=1, rel_widths = c(2,2))
-
-##I THINK I WANT TO ADD NPS AND CARIBBEAN SEA ADVENTURES LOGOS IF POSSIBLE##
+funding<-plot_grid(F1, F2, F3, F4, 
+                  nrow=1, rel_widths = c(2,2, 4, 3.8))
 
 ```
 
-```{r funding, echo=FALSE, fig.align='left', out.width='30%'}
+```{r funding, echo=FALSE, fig.align='left', out.width='70%'}
 funding
 ```
 
 ### Our Team
 
-```{r team, echo=FALSE, out.width = '50%', fig.align='center'}
+```{r team, echo=FALSE, out.width = '50%', fig.align='center', caption="St. Croix, USVI 2022 Field team" }
 knitr::include_graphics("Data/Fieldteam.jpg")
 ```
 
