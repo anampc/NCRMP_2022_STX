@@ -712,7 +712,7 @@ ggarrange(CB_A_plot, CB_B_plot,
           ncol = 2, nrow = 1, widths = c(1, 2))
 ```
 
-<font size="2">**Figure 4:** Carbonate budgets Salt River Bay in 2019 and 2022 and the processes contributing to calcification and bioerosion.  Carbonate budgets declined in 2022 compared to 2019, mainly due to the reduction in coral production and the increase in urching erosion. </font>
+<font size="2">**Figure 4:** Carbonate budgets Salt River Bay in 2019 and 2022 and the processes contributing to calcification and bioerosion.  Carbonate budgets declined in 2022 compared to 2019, mainly due to the reduction in coral production and the increase in urchin erosion. </font>
 
 The transect results showed that carbonate budgets have become negative in 2022, which implies that this site has shifted to being net erosional over the past 3 years.
 
@@ -778,12 +778,12 @@ These efforts were jointly funded by NOAA's CRCP and OAP. We would like to since
 
 ```{r fundingsources, include=FALSE, fig.width = 10, fig.height = 4, fig.align='center', out.width='100%'}
 
-F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.4)
+F1 <- ggdraw() + draw_image("Logos/CRCP.jpeg", scale = 0.5)
 #F_space<-ggplot() +
 #    theme_void() +
 #    geom_text(aes(0,0,label='')) +
 #    xlab(NULL)
-F2 <- ggdraw() + draw_image("Logos/OAP.png", scale = 1)
+F2 <- ggdraw() + draw_image("Logos/OAP.png", scale = 1.1)
 F3 <- ggdraw() + draw_image("Logos/NPS.png", scale = 0.7)
 F4 <- ggdraw() + draw_image("Logos/CSA.png", scale = 0.65)
 
