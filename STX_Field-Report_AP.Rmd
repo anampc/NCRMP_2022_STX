@@ -1,12 +1,11 @@
 ---
 output:
+  word_document: default
+  always_allow_html: true
   html_document:
     fig_height: 5
     fig_width: 5
     fig_position: center
-  pdf_document: default
-  always_allow_html: true
-  word_document: default
 ---
 
 <h1 style="color: darkblue;font size=24, align=center" > National Coral Reef Monitoring Program</h1> 
@@ -54,7 +53,7 @@ library(webshot)
 ```
 
 
-```{r front, echo=FALSE, out.width = '75%', fig.cap="Orbicella faveolata colony in St. Croix, USVI", fig.align='center'}
+```{r front, echo=FALSE, out.width = '75%', fig.cap="Orbicella faveolata in St. Croix, USVI", fig.align='center'}
 
 knitr::include_graphics("Data/STX_NCRMPClimate_2022.jpg")
 
@@ -131,18 +130,32 @@ STR_all <-
     remove = TRUE
   )
 
-STR_all$Depth<-as.factor(STR_all$Depth)
+
+## Formatting
+STR_all$Depth[STR_all$Depth=="06m"]<-"05m"
+STR_all$Depth[STR_all$Depth=="01m"]<-"1m"
+STR_all$Depth[STR_all$Depth=="05m"]<-"5m"
+STR_all$Depth<-factor(STR_all$Depth, 
+                levels = c("1m", "5m", "15m","25m"))
 summary(STR_all$Depth)
 
-STR_all$Depth[STR_all$Depth=="06m"]<-"05m"
+
+STR_all$Transect[STR_all$Transect=="east"]<-"East"
+STR_all$Transect[STR_all$Transect=="west"]<-"West"
+STR_all$Transect[STR_all$Transect=="north"]<-"North"
+STR_all$Transect[STR_all$Transect=="south"]<-"South"
+
+STR_all$Transect<-factor(STR_all$Transect, 
+                levels = c("North", "East",
+                           "South","West"))
+summary(STR_all$Transect)
 ```
 
 * Subsurface **temperature** recorders (STRs) were recovered and redeployed at all 4 transects, each one composed by 3-4 depths (Fig. 1). Overall,  more than 4 million temperature observations were collected:
   
 ```{r Temp observations}
-Cases_Loc_depth<-STR_all %>% count(Transect,
-                                  Depth,
-                                  sort = F)
+Cases_Loc_depth<-STR_all %>% count(Depth, Transect,
+                                  sort = FALSE)
 Cases_Loc_depth<-as.data.frame(Cases_Loc_depth %>%
                    pivot_wider(names_from = Depth,
                    values_from = n))
@@ -151,7 +164,7 @@ Cases_Loc_depth$Total<-rowSums(Cases_Loc_depth[, c(2:5)], na.rm=TRUE)
 
 kable(Cases_Loc_depth,
       format.args = list(big.mark = ","),
-      caption = "Number of temperture observations collected by transect and depth")
+      caption = "Table 1: Number of temperature observations collected by transect and depth")
 ```
 
 
@@ -464,7 +477,7 @@ Figure2_1 <- ggarrange(plot1, box1, widths = c(8/10, 2/10))
 Figure2_1
 ```
 
-<font size="2"> **Figure 2:** Temperature conditions at four transects in St. Croix (east, west, north and south) representing a depth gradient (1m, 5m, 15m and 25m). Data were collected from September 2019 to September 2022. However, STR from north station - 25m stopped recording earlier on February 2022 and STRs from south station - 1m on Nobember 2011. </font>
+<font size="2"> **Figure 2:** Temperature conditions at four transects in St. Croix (east, west, north and south) representing a depth gradient (1m, 5m, 15m and 25m). Data were collected from September 2019 to September 2022. However, STR from north station - 25m stopped recording earlier on February 2022 and STRs from south station - 1m on November 2011. </font>
  
 ```{r, echo = F, include=F}
 #Temp.Depth <- plyr::ddply (str_all, .(Depth), summarise,
@@ -650,7 +663,7 @@ ggdraw(plot_grid(plot_grid(pH_Temp_Plot,
                  ncol = 1, rel_heights=c(1, 0.1)))
 ```
 
-<font size="2">**Figure 3:** Salt River Bay (N 15m) diurnal suite monitoring from Sept 5th to Sept 8th. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 15 minutes. </font>
+<font size="2">**Figure 3:** Salt River Bay (N 15m) diurnal suite monitoring from September 5th to 8th. Top panel: pH and temperature from SeaFET. Bottom panel: Photosynthetically Available Radiation (PAR) and current speed from EcoPAR and Tiltmeter. Grey blocks denote night time throughout sequence of the plot. Instruments measured parameters every 15 minutes. </font>
 
 
 
