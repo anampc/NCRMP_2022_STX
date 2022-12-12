@@ -24,6 +24,7 @@ vignettes/*.pdf
 **/.knit.md
 # Other files
 **/.directory
+**/**.docx
 **/*.DS_Store*
 .Rproj.user
 rsconnect

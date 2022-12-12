@@ -1,11 +1,11 @@
 ---
 output:
-  word_document: default
-  always_allow_html: true
   html_document:
     fig_height: 5
     fig_width: 5
     fig_position: center
+  always_allow_html: true
+  word_document: default
 ---
 
 <h1 style="color: darkblue;font size=24, align=center" > National Coral Reef Monitoring Program</h1> 
@@ -669,7 +669,7 @@ ggdraw(plot_grid(plot_grid(pH_Temp_Plot,
 
 As part of the diurnal suite, discrete water samples were collected at three-hour intervals (n=15) using Subsurface Automatic Samplers (SAS). These samples will be analyzed for Total Alkalinity (TA), Dissolved Inorganic Carbon (DIC), and Spectrophotometric pH (SpecpH). Using these metrics we can get the calculated values for pCO2 and aragonite saturation state. For more information on SAS vist https://www.coral.noaa.gov/accrete/sas/
 
-```{r SASs, echo=FALSE, out.width = '50%', fig.cap="Submered Automated Samplers (SAS) deployed to collect water samples every 3 hours", fig.align='center'}
+```{r SASs, echo=FALSE, out.width = '50%', fig.cap="Figure 4: Submered Automated Samplers (SAS) deployed to collect water samples every 3 hours", fig.align='center'}
 
 knitr::include_graphics("Data/SAS.jpg")
 
@@ -677,12 +677,13 @@ knitr::include_graphics("Data/SAS.jpg")
 
 -----
 
-#### Carbonate budgets
+#### Habitat persistance
 
+* **Carbonate budgets** ... 
 At Salt River Bay, six transects were established and surveyed in 2019 to obtain carbonate budgets which describe the summation of all processes contributing to calcification and bioerosion on a reef.  This metric is used to determine if a reef is in a state of net accretion; growing or net loss; flattening. We revisited this site and recorded the abundance and cover of all major carbonate producing (coral and CCA) and eroding taxa (urchin, bioeroding sponges and parrotfish) to find out the new carbonate budget status after 3 years. 
 
 ```{r, Carbonate_B_plot, echo=FALSE, warning=FALSE, fig.width = 7.5, fig.height = 3.5}
-## boxplots production
+
 CB.data<- read.csv("Data/STX_2022_CB.csv")
 
 CB.data.A<-melt(CB.data,id.vars=c(8:9))
@@ -690,24 +691,27 @@ CB.data.A$Year<-as.character(CB.data.A$Year)
 CB.data.A[c(3)] <- lapply(CB.data.A[c(3)], gsub, pattern = ".", replacement = " ", fixed = TRUE)
 CBA.data<-subset(CB.data.A,variable=="Carbonate budgets")
 
-CB_A_plot<-ggplot(CBA.data,aes(Year,value,fill=Year))+
+CB_A_plot<-ggplot(CBA.data, aes(Year, value, fill=Year))+
+  geom_abline(slope = 0, intercept = 0, colour="gray")+
   geom_boxplot(alpha=0.5,width=0.4)+
   scale_fill_manual(values=c( "#666699","#336666")) +
   facet_wrap(~variable)+
-  # scale_viridis(discrete=TRUE,alpha=0.6)+
   geom_jitter(colour="black",size=1,alpha=0.9,shape=1,width=0.15)+
   theme_bw()+
   theme(panel.grid.major = element_blank(),
         panel.grid.minor=element_blank(),
         legend.position = "none")+
   ylab(expression(paste( " [ kg m"^"-2"," yr"^"-1","]")))
+  
 
 
 mdata<-melt(CB.data,id.vars=c(1,8:9))
 mdata$Year<-as.character(mdata$Year)
 mdata[c(4)] <- lapply(mdata[c(4)], gsub, pattern = ".", replacement = " ", fixed = TRUE)
-mdata$variable <- factor(mdata$variable, levels = c("Coral production","CCA production", "PF erosion",
-                                                    "Urchin erosion","Macro bioerosion","Micro bioerosion"))
+mdata$variable <- factor(mdata$variable, 
+                         levels = c("Coral production","CCA production",
+                                    "PF bioerosion", "Urchin bioerosion", 
+                                    "Macro bioerosion","Micro bioerosion"))
 CB_B_plot<-ggplot(mdata,aes(Year,value,fill=Year))+
   geom_boxplot(alpha=0.5,width=0.5)+
   scale_fill_manual(values=c( "#666699","#336666")) +
@@ -725,17 +729,15 @@ ggarrange(CB_A_plot, CB_B_plot,
           ncol = 2, nrow = 1, widths = c(1, 2))
 ```
 
-<font size="2">**Figure 4:** Carbonate budgets Salt River Bay in 2019 and 2022 and the processes contributing to calcification and bioerosion.  Carbonate budgets declined in 2022 compared to 2019, mainly due to the reduction in coral production and the increase in urchin erosion. </font>
+<font size="2">**Figure 5:** Carbonate budgets Salt River Bay in 2019 and 2022 and the processes contributing to calcification and bioerosion.  Carbonate budgets declined in 2022 compared to 2019, mainly due to the reduction in coral production and the increase in urchin erosion. </font>
 
 The transect results showed that carbonate budgets have become negative in 2022, which implies that this site has shifted to being net erosional over the past 3 years.
 
 -----
 
-#### Other Deliverables
-
 * **Calcification Accretion Units (CAUs)** and **Bioerosion Monitoring Units (BMUs)** were collected and redeployed for the next sampling cycle. CAUs are processed by the Pacific Climate group and the data will be available within a year. BMUs will be dried and cleaned using a hydrogen peroxide solution. These samples will be weighed and scanned using a Macro CT scanner and then compared to their pre-scans to quantify bioerosion. Data will be available in a year. Please reference previous datasets for more information.
 
-```{r BMUs, echo=FALSE, out.width = '50%', fig.cap="CAU and BMU pair before retreval after being deployed for 3 years. CAUs are 2 parallel PVC plates to quantify settled accretors. BMU is mounted coral skeleton installed at the base of the metal stake and has been encrusted.", fig.align='center'}
+```{r BMUs, echo=FALSE, out.width = '50%', fig.cap="Figure 6: CAU and BMU pair before retreval after being deployed for 3 years. CAUs are 2 parallel PVC plates to quantify settled accretors. BMU is mounted coral skeleton installed at the base of the metal stake and has been encrusted.", fig.align='center'}
 
 knitr::include_graphics("Data/CAUBMU.jpg")
 
@@ -743,7 +745,7 @@ knitr::include_graphics("Data/CAUBMU.jpg")
 
 * **Landscape mosaics** (n=6) were completed to monitor changes in benthic cover.
 
-```{r mosaic, echo=FALSE, out.width = '50%', fig.cap="Landscape Mosaic collected from transect 6", fig.align='center'}
+```{r mosaic, echo=FALSE, out.width = '50%', fig.cap="Figure 7: Landscape Mosaic collected from transect 6", fig.align='center'}
 
 knitr::include_graphics("Data/mosaic.jpg")
 
